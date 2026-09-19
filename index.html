@@ -116,8 +116,9 @@
     <li><b>Detector benchmarking:</b> the same corpus work is available for your own scanner —
       <a href="https://github.com/sushant-me/tool-boundary-corpus">a labelled corpus</a> of agent
       tool-boundary cases and a harness that scores precision and recall against it, so "our scanner
-      catches these bugs" becomes a number. My own two detectors are measured in public there: 1.000
-      precision and recall for mcpaudit, 0.750 precision for agentbound, with the false positive named.</li>
+      catches these bugs" becomes a number. My own two detectors are measured in public there, both at 1.000
+      precision and recall — and the second number is only 1.000 because the corpus found a real
+      false positive in it, which I then fixed and re-measured.</li>
   </ul>
 
   <h3>3 · Memory-safety and fuzz-harness work (C/C++)</h3>
