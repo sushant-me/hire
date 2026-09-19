@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sushant Poudel — AI security engineering</title>
+<meta name="description" content="I find where autonomous-agent tool boundaries leak, then close them. Merged patch in google/go-github; five memory-safety issues filed in google/s2geometry; #1 HackingHub Q3 2026.">
+<style>
+  :root{
+    --ink:#101319; --muted:#5a6472; --line:#e3e7ee; --accent:#0b3d91; --accent2:#0d6b5f;
+    --bg:#ffffff; --panel:#f7f9fc; --warn:#8a4b00;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.6 "Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:840px;margin:0 auto;padding:56px 24px 80px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1{font-size:2.15rem;line-height:1.15;margin:0 0 6px;letter-spacing:-.8px}
+  .lede{font-size:1.1rem;color:var(--accent2);font-weight:600;margin:0 0 18px}
+  h2{font-size:.82rem;text-transform:uppercase;letter-spacing:1.6px;color:var(--accent);
+     margin:44px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h3{font-size:1.03rem;margin:22px 0 4px}
+  p{margin:9px 0}
+  ul{margin:8px 0;padding-left:20px}
+  li{margin:5px 0}
+  .contact{font-size:.95rem;color:var(--muted);margin:0 0 4px}
+  .contact b{color:var(--ink)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:18px 0}
+  .panel.verify{border-left:4px solid var(--accent2)}
+  table{width:100%;border-collapse:collapse;font-size:.94rem;margin:10px 0}
+  td,th{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
+       background:#eef2f8;padding:1px 5px;border-radius:3px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;padding:11px 18px;border-radius:6px;
+       font-weight:650;margin:10px 8px 0 0}
+  .cta.alt{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+  .pill{display:inline-block;background:#eef2f8;border:1px solid #dbe3ef;color:var(--accent);
+        border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600;margin:3px 5px 3px 0}
+  footer{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+         font-size:.85rem;color:var(--muted)}
+  @media print{.wrap{padding:18mm 16mm}.cta{display:none}h2{margin-top:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Sushant Poudel</h1>
+  <p class="lede">I find where an autonomous agent's tool boundaries leak, then close them.</p>
+  <p class="contact">
+    <b>sushant.poudel2028@gmail.com</b> · +977 9863635324 · Kathmandu, Nepal (remote, worldwide)<br>
+    <a href="https://github.com/sushant-me">github.com/sushant-me</a> ·
+    <a href="https://linkedin.com/in/sushant-poudel2028">linkedin.com/in/sushant-poudel2028</a> ·
+    <a href="https://sushantpoudel2028.com.np">sushantpoudel2028.com.np</a>
+  </p>
+  <p>
+    <span class="pill">Agent &amp; LLM security</span>
+    <span class="pill">Memory-safety in C/C++</span>
+    <span class="pill">Evaluation design</span>
+    <span class="pill">Edge / offline inference</span>
+  </p>
+
+  <p style="margin-top:18px">
+    <a class="cta" href="mailto:sushant.poudel2028@gmail.com?subject=Work%20with%20you">Email me</a>
+    <a class="cta alt" href="https://github.com/sushant-me/reputation">Check my claims</a>
+  </p>
+
+  <div class="panel verify">
+    <b>Every claim on this page is checkable, and checked weekly.</b><br>
+    <a href="https://github.com/sushant-me/reputation">sushant-me/reputation</a> lists each claim I make,
+    names the public source it came from, and re-runs those checks in CI once a week — it turns red the
+    moment one stops holding. Claims that cannot be checked from outside are marked
+    <i>on request</i> rather than mixed in with the verified ones.
+    <br><br>
+    <code>git clone https://github.com/sushant-me/reputation &amp;&amp; cd reputation &amp;&amp; python3 verify_evidence.py</code>
+  </div>
+
+  <h2>What I can do for you</h2>
+
+  <h3>1 · Agent and LLM security review</h3>
+  <p>
+    Your agent executes actions — calls tools, touches files, moves money, runs commands — and
+    role-based access control authenticates the identity without having any opinion about whether a
+    given action should happen. I review the stack for the failure modes that actually occur:
+    prompt injection through retrieved content, tools that shadow framework built-ins, confirmation
+    gates that fail open, and destructive actions reachable without an independent check.
+  </p>
+  <ul>
+    <li><b>What you get:</b> a written finding list, each item with a minimal reproduction, the mechanism at file and line, and a suggested fix.</li>
+    <li><b>Typical shape:</b> 3–5 days for one agent product; fixed scope agreed in writing before I start.</li>
+    <li><b>Background:</b> MCP tool-shadowing fixes open against three of Google's agent frameworks; a paper on local policy verification for agents; the <a href="https://github.com/sushant-me/agentbound">agentbound</a> detector for this bug class.</li>
+  </ul>
+
+  <h3>2 · Memory-safety and fuzz-harness work (C/C++)</h3>
+  <p>
+    Memory bugs in the libraries everything else is built on, plus the harnesses meant to catch them.
+    I filed five memory-safety issues against Google's <code>s2geometry</code> — a NULL dereference on
+    the documented traversal path, an out-of-bounds read, a 16 GiB allocation from a 5-byte header, and
+    a <b>2.4 GiB allocation reachable from a 28-byte input</b> — each with a standalone reproducer.
+    In <code>libphonenumber</code> I found an OSS-Fuzz harness that was asserting <b>0.00% line
+    coverage</b> of the code it targeted; the corrected one reaches 93%.
+  </p>
+  <ul>
+    <li><b>What you get:</b> fuzzing set up or repaired, crashes triaged under ASan/UBSan with reproducible evidence, and a clear statement of what is and is not reachable from untrusted input.</li>
+    <li><b>Typical shape:</b> 2–5 days to get a target under a working harness and produce the first triaged findings.</li>
+  </ul>
+
+  <h3>3 · Evaluation design for AI features</h3>
+  <p>
+    "It works" is not a measurement. I design evaluations with controls that can fail: a shuffled-label
+    floor, an ablation that must collapse, a deliberately broken system that must be caught. My current
+    paper ran 600 policy scenarios per condition on a 3.8B model inside a 4.2 GiB budget, and the
+    headline is the result that contradicted my hypothesis — JSON-constrained output <i>without</i> a
+    reasoning field was the <b>least</b> safe configuration of the three, at 46.2% unsafe accepts
+    against 17.2% unconstrained.
+  </p>
+  <ul>
+    <li><b>What you get:</b> an evaluation you can re-run, with the failure taxonomy, the controls, and an honest statement of what the numbers do not cover.</li>
+    <li><b>Also useful for:</b> model and vendor evaluation, red-team exercises, and "is this feature safe to ship?" decisions.</li>
+  </ul>
+
+  <h2>How I work</h2>
+  <ul>
+    <li><b>Written scope first.</b> Deliverable, date, price, and what is explicitly out of scope — before any work starts.</li>
+    <li><b>Paid trial available.</b> A small scoped task, paid, so you can judge the work rather than my profile.</li>
+    <li><b>50% upfront</b> for a first engagement.</li>
+    <li><b>Rates:</b> hourly and fixed-scope; rate card on request. Remote from Kathmandu — I invoice through Payoneer or Wise, so there is no invoicing problem for a US or EU client.</li>
+    <li><b>I report the negatives.</b> If my own fix turns out to be wrong, you will see the trace that shows it — the writeup <a href="https://github.com/sushant-me/writeups">*The crash that wasn't*</a> is a pull request I closed on myself for exactly that reason.</li>
+  </ul>
+
+  <h2>The receipts</h2>
+  <table>
+    <tr><th>what</th><th>check it</th></tr>
+    <tr><td><b>Patch merged into <code>google/go-github</code></b> — release-asset uploads rejected when the upload URL's host differs from the configured host; approved by the maintainer, full CI matrix green</td>
+        <td><a href="https://github.com/google/go-github/pull/4556">PR #4556</a></td></tr>
+    <tr><td><b>Five memory-safety issues in <code>google/s2geometry</code></b>, with reproducers; two hardening pull requests under review</td>
+        <td><a href="https://github.com/google/s2geometry/issues/674">#674</a>, <a href="https://github.com/google/s2geometry/issues/676">#676</a>–<a href="https://github.com/google/s2geometry/issues/679">#679</a>, <a href="https://github.com/google/s2geometry/pull/682">PR #682</a></td></tr>
+    <tr><td><b>MCP tool-shadowing fixes</b> open against three of Google's agent frameworks</td>
+        <td><a href="https://github.com/google/adk-go/pull/1606">adk-go #1606</a> · <a href="https://github.com/google/adk-java/pull/1515">adk-java #1515</a> · <a href="https://github.com/google/adk-python/pull/7145">adk-python #7145</a></td></tr>
+    <tr><td><b>Rank #1, HackingHub Q3 2026</b> global leaderboard — 116 flags, 11,860 XP</td>
+        <td><a href="https://api.hackinghub.io/leaderboard">leaderboard API</a></td></tr>
+    <tr><td><b>Two IEEE papers accepted</b> — local policy verification for agents; predictive bandwidth scaling for WebRTC over LEO links (2026 IEEE RTC, Chicago)</td>
+        <td><a href="https://github.com/sushant-me/Edge-Native_Semantic_Firewall_">paper, code, raw outputs</a></td></tr>
+    <tr><td><b>Tools I maintain:</b> <a href="https://github.com/sushant-me/agentbound">agentbound</a>, <a href="https://github.com/sushant-me/mcp-nameguard">mcp-nameguard</a>, <a href="https://github.com/sushant-me/trajectorycheck">trajectorycheck</a></td>
+        <td>each has releases, tests and CI</td></tr>
+    <tr><td><b>Two years as an AI engineer</b> at Atmos SoftTech — production ML, full-stack delivery, offline-first agent pipelines</td>
+        <td>signed experience letter <i>on request</i></td></tr>
+  </table>
+
+  <h2>Availability</h2>
+  <p>
+    Open to <b>contract and freelance engagements</b> now, and to <b>full-time AI security / agent
+    safety roles</b> from <b>[month year]</b>. Final-year Computer Engineering at Nepal Engineering
+    College, so I keep one client engagement at a time alongside it.
+  </p>
+  <p style="margin-top:20px">
+    <a class="cta" href="mailto:sushant.poudel2028@gmail.com?subject=Work%20with%20you">sushant.poudel2028@gmail.com</a>
+  </p>
+
+  <footer>
+    Statuses are stated exactly as their sources report them: an accepted paper with the camera-ready in
+    progress is not called published, and an open pull request is not called merged. Sources and the
+    checker: <a href="https://github.com/sushant-me/reputation">sushant-me/reputation</a>.
+  </footer>
+
+</div>
+</body>
+</html>
