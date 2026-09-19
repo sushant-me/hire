@@ -95,7 +95,26 @@
     <li><b>Background:</b> MCP tool-shadowing fixes open against three of Google's agent frameworks; a paper on local policy verification for agents; the <a href="https://github.com/sushant-me/agentbound">agentbound</a> detector for this bug class.</li>
   </ul>
 
-  <h3>2 · Memory-safety and fuzz-harness work (C/C++)</h3>
+  <h3>2 · MCP server audit <span style="font-weight:400;color:var(--muted)">— before you connect to it</span></h3>
+  <p>
+    A tool description is not documentation: it is injected into the model's context, so it
+    can carry instructions. I review the declarations your client receives from a server's
+    <code>tools/list</code> — and pin them, so a description that changes after you approve
+    it is reported instead of silently steering the agent.
+  </p>
+  <ul>
+    <li><b>What you get:</b> a written audit — reserved-name collisions (a server tool that
+      silently displaces a framework primitive), instruction-shaped text, invisible Unicode
+      with any hidden payload decoded, look-alike names, destructive tools declaring
+      <code>readOnlyHint</code>, and unconstrained sink parameters — plus a lock file that
+      turns the next change into a diff.</li>
+    <li><b>The tool is public:</b> <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>
+      — run it yourself first, and hire me when you want the review and the lock file
+      maintained.</li>
+    <li><b>Typical shape:</b> 1–2 days for a small server estate; fixed price.</li>
+  </ul>
+
+  <h3>3 · Memory-safety and fuzz-harness work (C/C++)</h3>
   <p>
     Memory bugs in the libraries everything else is built on, plus the harnesses meant to catch them.
     I filed five memory-safety issues against Google's <code>s2geometry</code> — a NULL dereference on
@@ -109,7 +128,7 @@
     <li><b>Typical shape:</b> 2–5 days to get a target under a working harness and produce the first triaged findings.</li>
   </ul>
 
-  <h3>3 · Evaluation design for AI features</h3>
+  <h3>4 · Evaluation design for AI features</h3>
   <p>
     "It works" is not a measurement. I design evaluations with controls that can fail: a shuffled-label
     floor, an ablation that must collapse, a deliberately broken system that must be caught. My current
@@ -145,7 +164,7 @@
         <td><a href="https://api.hackinghub.io/leaderboard">leaderboard API</a></td></tr>
     <tr><td><b>Two IEEE papers accepted</b> — local policy verification for agents; predictive bandwidth scaling for WebRTC over LEO links (2026 IEEE RTC, Chicago)</td>
         <td><a href="https://github.com/sushant-me/Edge-Native_Semantic_Firewall_">paper, code, raw outputs</a></td></tr>
-    <tr><td><b>Tools I maintain:</b> <a href="https://github.com/sushant-me/agentbound">agentbound</a>, <a href="https://github.com/sushant-me/mcp-nameguard">mcp-nameguard</a>, <a href="https://github.com/sushant-me/trajectorycheck">trajectorycheck</a></td>
+    <tr><td><b>Tools I maintain:</b> <a href="https://github.com/sushant-me/agentbound">agentbound</a>, <a href="https://github.com/sushant-me/mcp-nameguard">mcp-nameguard</a>, <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>, <a href="https://github.com/sushant-me/policygate">policygate</a>, <a href="https://github.com/sushant-me/trajectorycheck">trajectorycheck</a></td>
         <td>each has releases, tests and CI</td></tr>
     <tr><td><b>Two years as an AI engineer</b> at Atmos SoftTech — production ML, full-stack delivery, offline-first agent pipelines</td>
         <td>signed experience letter <i>on request</i></td></tr>
