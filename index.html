@@ -108,6 +108,7 @@
       with any hidden payload decoded, look-alike names, destructive tools declaring
       <code>readOnlyHint</code>, and unconstrained sink parameters — plus a lock file that
       turns the next change into a diff.</li>
+    <li><b>Audit becomes enforcement:</b> the audit emits the starting policy for <a href="https://github.com/sushant-me/policygate">policygate</a> — collisions and instruction-carrying descriptions deny, ambiguous tools escalate, clean read-only tools are allowed, and anything the audit never saw escalates because the gate refuses by default. You get a policy you can read, a diff when the server changes, and a gate that enforces it per call.</li>
     <li><b>The tool is public:</b> <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>
       — run it yourself first, and hire me when you want the review and the lock file
       maintained.</li>
