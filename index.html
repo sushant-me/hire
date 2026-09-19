@@ -90,6 +90,7 @@
   <ul>
     <li><b>What you get:</b> a written finding list, each item with a minimal reproduction, the mechanism at file and line, and a suggested fix.</li>
     <li><b>See it before you buy it:</b> <a href="https://github.com/sushant-me/agent-review-sample">a sample review</a> — a deliberately vulnerable agent I wrote, and the four findings I would return for it, runnable with one command. The same structure is what you receive.</li>
+    <li><b>And the implementation:</b> <a href="https://github.com/sushant-me/policygate">policygate</a> — a fail-closed gate for agent tool calls that I wrote because of a number: my paper measured a locally served 3.8B model approving <b>23.5%</b> of the proposals the policy would have blocked. So in the library a model can deny or escalate and <b>cannot authorise</b>; a failing evaluator falls through to a refusal; and every decision lands in a tamper-evident audit log.</li>
     <li><b>Typical shape:</b> 3–5 days for one agent product; fixed scope agreed in writing before I start.</li>
     <li><b>Background:</b> MCP tool-shadowing fixes open against three of Google's agent frameworks; a paper on local policy verification for agents; the <a href="https://github.com/sushant-me/agentbound">agentbound</a> detector for this bug class.</li>
   </ul>
