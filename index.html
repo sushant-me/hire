@@ -125,7 +125,7 @@
   <p>
     Memory bugs in the libraries everything else is built on, plus the harnesses meant to catch them.
     I filed five memory-safety issues against Google's <code>s2geometry</code> — a NULL dereference on
-    the documented traversal path, an out-of-bounds read, a 16 GiB allocation from a 5-byte header, and
+    the documented traversal path, an out-of-bounds read, a 16 GiB allocation from a 117-byte input, and
     a <b>2.4 GiB allocation reachable from a 28-byte input</b> — each with a standalone reproducer.
     In <code>libphonenumber</code> I found an OSS-Fuzz harness that was asserting <b>0.00% line
     coverage</b> of the code it targeted; the corrected one reaches 93%.
