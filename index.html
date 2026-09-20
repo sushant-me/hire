@@ -118,9 +118,12 @@
     <li><b>Detector benchmarking:</b> the same corpus work is available for your own scanner —
       <a href="https://github.com/sushant-me/tool-boundary-corpus">a labelled corpus</a> of agent
       tool-boundary cases and a harness that scores precision and recall against it, so "our scanner
-      catches these bugs" becomes a number. My own two detectors are measured in public there, both at 1.000
-      precision and recall — and the second number is only 1.000 because the corpus found a real
-      false positive in it, which I then fixed and re-measured.</li>
+      catches these bugs" becomes a number. It covers tool declarations, framework source, and
+      declaration drift — a tool description edited <i>after</i> you approved it, which takes two
+      states of the same server to see and is the shape a rug pull has. My own two detectors are
+      measured in public there, all three rows at 1.000 precision and recall — and the second
+      number is only 1.000 because the corpus found a real false positive in it, which I then
+      fixed and re-measured.</li>
   </ul>
 
   <h3>3 · Memory-safety and fuzz-harness work (C/C++)</h3>
@@ -171,7 +174,7 @@
         <td><a href="https://github.com/google/adk-go/pull/1606">adk-go #1606</a> · <a href="https://github.com/google/adk-java/pull/1515">adk-java #1515</a> · <a href="https://github.com/google/adk-python/pull/7145">adk-python #7145</a></td></tr>
     <tr><td><b>Rank #1, HackingHub Q3 2026</b> global leaderboard — 116 flags, 11,860 XP</td>
         <td><a href="https://api.hackinghub.io/leaderboard">leaderboard API</a></td></tr>
-    <tr><td><b>A benchmark I wrote found a false positive in my own released scanner</b> — 19 labelled agent tool-boundary cases, precision 0.750 → 1.000, with the failing case named in CI instead of deleted</td>
+    <tr><td><b>A benchmark I wrote found a false positive in my own released scanner</b> — 23 labelled agent tool-boundary cases, precision 0.750 → 1.000, with the failing case named in CI instead of deleted</td>
         <td><a href="https://github.com/sushant-me/tool-boundary-corpus">tool-boundary-corpus</a> · <a href="https://github.com/sushant-me/writeups/blob/main/2026-09-21-a-benchmark-found-a-bug-in-my-own-detector.md">the writeup</a></td></tr>
     <tr><td><b>Two IEEE papers accepted</b> — local policy verification for agents; predictive bandwidth scaling for WebRTC over LEO links (2026 IEEE RTC, Chicago)</td>
         <td><a href="https://github.com/sushant-me/Edge-Native_Semantic_Firewall_">paper, code, raw outputs</a></td></tr>
