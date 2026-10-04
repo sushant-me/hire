@@ -128,6 +128,13 @@
     <li><b>The tool is public:</b> <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>
       — run it yourself first, and hire me when you want the review and the lock file
       maintained.</li>
+    <li><b>The same three checks in Rust, with a green badge:</b>
+      <a href="https://github.com/sushant-me/toolgate">toolgate</a> is a single static binary —
+      confusable names, hidden Unicode in a description, and destructive tools with no
+      <code>readOnlyHint</code>. Its CI asserts what a checker usually gets wrong: that it
+      <b>exits non-zero on input it cannot parse</b>, and that all three checks still fire on a
+      server built to trip them. A checker that reports "clean" when it could not read its input
+      is worse than no checker at all.</li>
     <li><b>Typical shape:</b> 1–2 days for a small server estate; fixed price.</li>
     <li><b>Detector benchmarking:</b> the same corpus work is available for your own scanner —
       <a href="https://github.com/sushant-me/tool-boundary-corpus">a labelled corpus</a> of agent
@@ -200,7 +207,7 @@
         <td><a href="https://github.com/sushant-me/tool-boundary-corpus">tool-boundary-corpus</a> · <a href="https://sushantpoudel2028.com.np/writing/a-benchmark-found-a-bug-in-my-own-detector">the writeup</a></td></tr>
     <tr><td><b>Two IEEE papers accepted</b> — local policy verification for agents; predictive bandwidth scaling for WebRTC over LEO links (2026 IEEE RTC, Chicago)</td>
         <td><a href="https://github.com/sushant-me/Edge-Native_Semantic_Firewall_">paper, code, raw outputs</a></td></tr>
-    <tr><td><b>Tools I maintain:</b> <a href="https://github.com/sushant-me/agentbound">agentbound</a>, <a href="https://github.com/sushant-me/mcp-nameguard">mcp-nameguard</a>, <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>, <a href="https://github.com/sushant-me/policygate">policygate</a>, <a href="https://github.com/sushant-me/trajectorycheck">trajectorycheck</a></td>
+    <tr><td><b>Tools I maintain:</b> <a href="https://github.com/sushant-me/agentbound">agentbound</a>, <a href="https://github.com/sushant-me/toolgate">toolgate</a> (Rust), <a href="https://github.com/sushant-me/mcp-nameguard">mcp-nameguard</a>, <a href="https://github.com/sushant-me/mcpaudit">mcpaudit</a>, <a href="https://github.com/sushant-me/policygate">policygate</a>, <a href="https://github.com/sushant-me/trajectorycheck">trajectorycheck</a></td>
         <td>each has releases, tests and CI</td></tr>
     <tr><td><b>Two years as an AI engineer</b> at Atmos SoftTech — production ML, full-stack delivery, offline-first agent pipelines</td>
         <td>signed experience letter <i>on request</i></td></tr>
